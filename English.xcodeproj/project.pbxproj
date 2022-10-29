@@ -25,7 +25,6 @@
 		F6F63F7229053F1700FF3DEC /* TextFieldContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F63F7129053F1700FF3DEC /* TextFieldContentView.swift */; };
 		F6F63F742905412E00FF3DEC /* UIContentConfiguration+Stateless.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F63F732905412E00FF3DEC /* UIContentConfiguration+Stateless.swift */; };
 		F6F63F762905478200FF3DEC /* TextViewContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F63F752905478200FF3DEC /* TextViewContentView.swift */; };
-		F6F63F7A2905A23000FF3DEC /* WordListStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F63F792905A23000FF3DEC /* WordListStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +48,6 @@
 		F6F63F7129053F1700FF3DEC /* TextFieldContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContentView.swift; sourceTree = "<group>"; };
 		F6F63F732905412E00FF3DEC /* UIContentConfiguration+Stateless.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContentConfiguration+Stateless.swift"; sourceTree = "<group>"; };
 		F6F63F752905478200FF3DEC /* TextViewContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewContentView.swift; sourceTree = "<group>"; };
-		F6F63F792905A23000FF3DEC /* WordListStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				F62DD74528FC66FB0012866B /* Word.swift */,
-				F6F63F792905A23000FF3DEC /* WordListStyle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,7 +213,6 @@
 				F6F63F6D29053AA000FF3DEC /* WordVC+CellConfiguration.swift in Sources */,
 				F667442628FC5E5B0020D443 /* WordListVC.swift in Sources */,
 				F6F63F762905478200FF3DEC /* TextViewContentView.swift in Sources */,
-				F6F63F7A2905A23000FF3DEC /* WordListStyle.swift in Sources */,
 				F6C561CE2903D7C20098DF27 /* WordListVC+DataSource.swift in Sources */,
 				F6F63F742905412E00FF3DEC /* UIContentConfiguration+Stateless.swift in Sources */,
 				F62DD74628FC66FB0012866B /* Word.swift in Sources */,
