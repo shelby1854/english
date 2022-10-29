@@ -37,7 +37,8 @@ extension Word {
     Word(anyWord: "Apple", wordTranscription: "Эпл", wordTranslation: "Яблоко", exampleWithWord: "Give me an apple", isLearnt: true),
     Word(anyWord: "Exhausted", wordTranslation: "Изнеможенный, истощенный", isLearnt: false),
     Word(anyWord: "Breast", wordTranscription: "брэст", wordTranslation: "Грудь", isLearnt: false),
-    Word(anyWord: "Bye", wordTranscription: "Бай", wordTranslation: "Пока", exampleWithWord: "Bye-bye, motherfucker", isLearnt: true)
+    Word(anyWord: "Bye", wordTranscription: "Бай", wordTranslation: "Пока", exampleWithWord: "Bye-bye, motherfucker", isLearnt: true),
+    Word(anyWord: "Test", wordTranscription: "тэст", wordTranslation: "тест")
     ]
     
     
