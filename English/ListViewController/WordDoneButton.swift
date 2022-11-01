@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WordDoneButton: UIButton {
+final class WordDoneButton: UIButton {
     
     var id: Word.ID?
     

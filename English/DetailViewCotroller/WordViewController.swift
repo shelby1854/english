@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WordViewController: UICollectionViewController {
+final class WordViewController: UICollectionViewController {
     
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, Row>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Row>

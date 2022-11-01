@@ -27,19 +27,21 @@ extension Array where Element == Word {
         }
         return index
     }
+    
 }
 
 
 
 extension Word {
-   static var wordsSet = [
-    Word(anyWord: "Hello", wordTranscription: "Хеллоу", wordTranslation: "Привет", exampleWithWord: "Hello, I am Pasha", isLearnt: true),
-    Word(anyWord: "Apple", wordTranscription: "Эпл", wordTranslation: "Яблоко", exampleWithWord: "Give me an apple", isLearnt: true),
-    Word(anyWord: "Exhausted", wordTranslation: "Изнеможенный, истощенный", isLearnt: false),
-    Word(anyWord: "Breast", wordTranscription: "брэст", wordTranslation: "Грудь", isLearnt: false),
-    Word(anyWord: "Bye", wordTranscription: "Бай", wordTranslation: "Пока", exampleWithWord: "Bye-bye, motherfucker", isLearnt: true),
-    Word(anyWord: "Test", wordTranscription: "тэст", wordTranslation: "тест")
+   static  var wordsSet = [
+        Word(anyWord: "Hello", wordTranscription: "Хеллоу", wordTranslation: "Привет", exampleWithWord: "Hello, I am Pasha", isLearnt: true),
+        Word(anyWord: "Apple", wordTranscription: "Эпл", wordTranslation: "Яблоко", exampleWithWord: "Give me an apple", isLearnt: true),
+        Word(anyWord: "Exhausted", wordTranslation: "Изнеможенный, истощенный", isLearnt: false),
+        Word(anyWord: "Breast", wordTranscription: "брэст", wordTranslation: "Грудь", isLearnt: false),
+        Word(anyWord: "Bye", wordTranscription: "Бай", wordTranslation: "Пока", exampleWithWord: "Bye-bye, motherfucker", isLearnt: true),
+        Word(anyWord: "Test", wordTranscription: "тэст", wordTranslation: "тест")
     ]
-    
-    
+
 }
+ 
+

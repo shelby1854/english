@@ -7,19 +7,16 @@
 
 import UIKit
 
-class WordListVC: UICollectionViewController {
+final class WordListVC: UICollectionViewController {
   
     var dataSource: DataSource!
     var words: [Word] = Word.wordsSet
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        
+        words = words.sorted(by: { $0.anyWord < $1.anyWord })
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
-                
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
 
         dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: Word.ID) in
@@ -31,7 +28,6 @@ class WordListVC: UICollectionViewController {
         navigationItem.rightBarButtonItem = addButton
         
         updateSnapshot()
-        
         collectionView.dataSource = dataSource
         
     }

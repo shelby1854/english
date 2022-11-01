@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextFieldContentView: UIView, UIContentView {
+final class TextFieldContentView: UIView, UIContentView {
     
     struct Configuration: UIContentConfiguration {
         

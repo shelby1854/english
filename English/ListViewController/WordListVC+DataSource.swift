@@ -15,7 +15,7 @@ extension WordListVC {
     
     
     var wordCompleteValue: String {
-      NSLocalizedString("Completed", comment: "Word completed value")
+        NSLocalizedString("Completed", comment: "Word completed value")
     }
     
     var wordNotCompleteValue: String {
@@ -27,11 +27,11 @@ extension WordListVC {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(words.map { $0.id })
+        words = words.sorted(by: { $0.anyWord < $1.anyWord })
+    
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
-            
         }
-        
         dataSource.apply(snapshot)
     }
     
@@ -46,8 +46,6 @@ extension WordListVC {
         
         var doneButtonConfiguration = doneButtonConfiguration(for: word)
         doneButtonConfiguration.tintColor = .green
-        cell.accessibilityCustomActions = [ doneButtonAccessibilityAction(for: word) ]
-        cell.accessibilityValue = word.isLearnt ? wordCompleteValue : wordNotCompleteValue
         cell.accessories = [ .customView(configuration: doneButtonConfiguration), .disclosureIndicator(displayed: .always)]
         
         var backgoundConfiguration = UIBackgroundConfiguration.listGroupedCell()
@@ -63,7 +61,7 @@ extension WordListVC {
     
     
     private func doneButtonAccessibilityAction(for word: Word) -> UIAccessibilityCustomAction {
-      let name = NSLocalizedString("Toggle completion", comment: "Word done button accessibility label")
+        let name = NSLocalizedString("Toggle completion", comment: "Word done button accessibility label")
         let action = UIAccessibilityCustomAction(name: name) { [weak self] action in
             self?.completeWord(with: word.id)
             return true
