@@ -10,12 +10,11 @@ import UIKit
 final class WordListVC: UICollectionViewController {
   
     var dataSource: DataSource!
-    var words: [Word] = Word.wordsSet
+    var words: [Word] = Word.wordsSet.sorted(by: { $0.anyWord < $1.anyWord })
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        words = words.sorted(by: { $0.anyWord < $1.anyWord })
+      
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
@@ -30,7 +29,6 @@ final class WordListVC: UICollectionViewController {
         
         updateSnapshot()
         collectionView.dataSource = dataSource
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
