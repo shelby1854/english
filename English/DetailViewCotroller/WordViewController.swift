@@ -48,9 +48,9 @@ final class WordViewController: UICollectionViewController {
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
         
-        navigationItem.title = NSLocalizedString("ENGLISH", comment: "English VC title")
+        navigationItem.title = NSLocalizedString("Word \(word.anyWord)", comment: "English VC title")
         navigationItem.rightBarButtonItem = editButtonItem
-        
+        navigationController?.navigationBar.barTintColor = .black
         updateSnapshotForViewing()
     }
     
@@ -62,7 +62,7 @@ final class WordViewController: UICollectionViewController {
             if !isAddingNewWord {
                 prepareForViewing()
             } else {
-                onChange(workingWord)
+                    onChange(workingWord)
             }
         }
     }
@@ -121,14 +121,12 @@ final class WordViewController: UICollectionViewController {
         updateSnapshotForViewing()
     }
     
-    
     private func updateSnapshotForViewing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.view])
         snapshot.appendItems([.header(""), .viewAnyWord, .viewTranskription, .viewTranslation, .viewExample], toSection: .view)
         dataSource.apply(snapshot)
     }
-    
     
     private func section(for indexPath: IndexPath) -> Section {
         let sectionNumber = isEditing ? indexPath.section + 1 : indexPath.section
@@ -137,6 +135,4 @@ final class WordViewController: UICollectionViewController {
         }
         return section
     }
-    
-    
 }

@@ -14,6 +14,7 @@ final class WordListVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = NSLocalizedString("ENGLISH", comment: "English VC title")
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
