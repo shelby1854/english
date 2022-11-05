@@ -23,19 +23,18 @@ extension WordListVC {
     }
     
     
-    func updateSnapshot(reloading ids: [Word.ID] = []) {
+    @objc func updateSnapshot(reloading ids: [Word.ID] = []) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(words.map { $0.id })
-        words = words.sorted(by: { $0.anyWord < $1.anyWord })
-    
+
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
         }
         dataSource.apply(snapshot)
     }
     
-    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, id: Word.ID) {
+    @objc func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, id: Word.ID) {
         
         let word = word(for: id)
         var contentConfiguration = cell.defaultContentConfiguration()
@@ -80,6 +79,7 @@ extension WordListVC {
         button.id = word.id
         button.setImage(image, for: .normal)
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
+       
     }
     
     

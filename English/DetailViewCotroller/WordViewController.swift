@@ -76,13 +76,13 @@ final class WordViewController: UICollectionViewController {
             cell.contentConfiguration = headerConfiguration(for: cell, with: anyWord)
         case (.view, _):
             cell.contentConfiguration = defaultConfiguration(for: cell, at: row)
-        case (.anyWord, .editText(let anyWord) ):
+        case (.anyWord, .editText(let anyWord, "1") ):
             cell.contentConfiguration = anyWordConfiguration(for: cell, with: anyWord!)
-        case (.wordTranscription, .editText(let wordTranscription) ):
+        case (.wordTranscription, .editText(let wordTranscription, "2") ):
             cell.contentConfiguration = wordTranscriptionConfiguration(for: cell, with: wordTranscription)
-        case (.wordTranslation, .editText(let wordTranslation) ):
+        case (.wordTranslation, .editText(let wordTranslation, "3") ):
             cell.contentConfiguration = wordTranslationConfiguration(for: cell, with: wordTranslation!)
-        case (.exampleWithWord, .editText(let exampleWithWord) ):
+        case (.exampleWithWord, .editText(let exampleWithWord, "4") ):
             cell.contentConfiguration = exampleWithWordConfiguration(for: cell, with: exampleWithWord)
         default:
             fatalError("Unexpected combination of section and row.")
@@ -105,10 +105,10 @@ final class WordViewController: UICollectionViewController {
     private func updateSnapshotForEditing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.anyWord, .wordTranscription, .wordTranslation, .exampleWithWord])
-        snapshot.appendItems([.header(Section.anyWord.name), .editText(word.anyWord)], toSection: .anyWord)
-        snapshot.appendItems([.header(Section.wordTranscription.name), .editText(word.wordTranscription)], toSection: .wordTranscription)
-        snapshot.appendItems([.header(Section.wordTranslation.name), .editText(word.wordTranslation)], toSection: .wordTranslation)
-        snapshot.appendItems([.header(Section.exampleWithWord.name), .editText(word.exampleWithWord)], toSection: .exampleWithWord)
+        snapshot.appendItems([.header(Section.anyWord.name), .editText(word.anyWord, id: "1")], toSection: .anyWord)
+        snapshot.appendItems([.header(Section.wordTranscription.name), .editText(word.wordTranscription, id: "2")], toSection: .wordTranscription)
+        snapshot.appendItems([.header(Section.wordTranslation.name), .editText(word.wordTranslation, id: "3")], toSection: .wordTranslation)
+        snapshot.appendItems([.header(Section.exampleWithWord.name), .editText(word.exampleWithWord, id: "4")], toSection: .exampleWithWord)
         dataSource.apply(snapshot)
     }
     

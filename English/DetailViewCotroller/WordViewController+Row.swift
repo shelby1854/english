@@ -15,7 +15,7 @@ extension WordViewController {
         case viewTranslation
         case viewTranskription
         case viewExample
-        case editText(String?)
+        case editText(String?, id: String)
         
         var imageName: String? {
             switch self {

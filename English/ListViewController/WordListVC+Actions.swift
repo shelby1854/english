@@ -12,10 +12,11 @@ extension WordListVC {
     @objc func didPressDoneButton(_ sender: WordDoneButton) {
         guard let id = sender.id else { return }
         completeWord(with: id)
+        let timer = Timer(timeInterval: 1, target: self, selector: #selector(updateSnapshot), userInfo: nil, repeats: false)
     }
     
     @objc func didPressAddButton(_ sender: UIBarButtonItem) {
-        let word = Word(anyWord: " ", wordTranscription: "  ", wordTranslation: "")
+        let word = Word(anyWord: "", wordTranscription: "", wordTranslation: "")
         let viewController = WordViewController(word: word) { [weak self] word in
             self?.add(word)
             self?.updateSnapshot()

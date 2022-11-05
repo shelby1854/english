@@ -14,6 +14,7 @@ final class WordListVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         words = words.sorted(by: { $0.anyWord < $1.anyWord })
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
