@@ -14,7 +14,6 @@ final class WordListVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
@@ -26,7 +25,7 @@ final class WordListVC: UICollectionViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didPressAddButton(_:)))
         addButton.accessibilityLabel = NSLocalizedString("Add word", comment: "Add button accessibility label")
         navigationItem.rightBarButtonItem = addButton
-        
+        self.navigationController?.navigationBar.barTintColor = .black
         updateSnapshot()
         collectionView.dataSource = dataSource
     }
@@ -48,8 +47,8 @@ final class WordListVC: UICollectionViewController {
     }
  
   private func listLayout() -> UICollectionViewCompositionalLayout {
-      var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
-      listConfiguration.showsSeparators = false
+      var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+      listConfiguration.showsSeparators = true
       listConfiguration.backgroundColor = .clear
       listConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
       

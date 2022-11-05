@@ -23,7 +23,7 @@ extension WordListVC {
     }
     
     
-    @objc func updateSnapshot(reloading ids: [Word.ID] = []) {
+    func updateSnapshot(reloading ids: [Word.ID] = []) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(words.map { $0.id })
@@ -85,6 +85,7 @@ extension WordListVC {
     
     func add(_ word: Word) {
         words.append(word)
+        words.sort(by: { $0.anyWord < $1.anyWord } )
     }
     
     func deleteWord(with id: Word.ID) {

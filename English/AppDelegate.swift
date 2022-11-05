@@ -14,11 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UINavigationBar.appearance().tintColor = .green
-        UINavigationBar.appearance().backgroundColor = .green
+        UIBarButtonItem.appearance().tintColor = .green //color of top buttons
         let navBarAppearence = UINavigationBarAppearance()
         navBarAppearence.configureWithOpaqueBackground()
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearence
+        
+        UINavigationBar.appearance().backgroundColor = .green // цвет фона когда скролишь
         return true
     }
     

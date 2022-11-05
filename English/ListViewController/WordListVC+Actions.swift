@@ -12,6 +12,7 @@ extension WordListVC {
     @objc func didPressDoneButton(_ sender: WordDoneButton) {
         guard let id = sender.id else { return }
         completeWord(with: id)
+        
     }
     
     @objc func didPressAddButton(_ sender: UIBarButtonItem) {
@@ -25,7 +26,9 @@ extension WordListVC {
         viewController.isAddingNewWord = true
         viewController.setEditing(true, animated: false)
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didCancelAdd(_:)))
-        viewController.navigationItem.title = NSLocalizedString("Add word", comment: "Add word view controller title")
+        viewController.navigationItem.title = "Add word"
+        viewController.navigationItem.titleView?.backgroundColor = .black
+        viewController.navigationItem.titleView?.tintColor = .green
         let navigationController = UINavigationController(rootViewController: viewController)
         present(navigationController, animated: true)
     }
