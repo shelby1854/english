@@ -62,11 +62,17 @@ final class WordViewController: UICollectionViewController {
             if !isAddingNewWord {
                 prepareForViewing()
             } else {
+                if workingWord.anyWord == "" { // НАЙТИ СЮДА ТЕКСТ ФИЛД
+                            let errorAlert = UIAlertController(title: "Ooooops", message: "You haven't added any word", preferredStyle: .alert)
+                            errorAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                            present(errorAlert, animated: true, completion: nil)
+                } else {
                     onChange(workingWord)
+                }
             }
         }
     }
-    
+
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
         let section = section(for: indexPath)
         switch (section, row) {
@@ -108,7 +114,8 @@ final class WordViewController: UICollectionViewController {
         snapshot.appendItems([.header(Section.wordTranscription.name), .editText(word.wordTranscription, id: "2")], toSection: .wordTranscription)
         snapshot.appendItems([.header(Section.wordTranslation.name), .editText(word.wordTranslation, id: "3")], toSection: .wordTranslation)
         snapshot.appendItems([.header(Section.exampleWithWord.name), .editText(word.exampleWithWord, id: "4")], toSection: .exampleWithWord)
-        dataSource.apply(snapshot)
+            dataSource.apply(snapshot)
+    
     }
     
     private func prepareForViewing() {

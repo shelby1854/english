@@ -8,21 +8,22 @@
 import UIKit
 
 final class WordListVC: UICollectionViewController {
-  
+    
     var dataSource: DataSource!
     var words: [Word] = Word.wordsSet.sorted(by: { $0.anyWord < $1.anyWord })
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = NSLocalizedString("ENGLISH", comment: "English VC title")
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
-
+        
         dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: Word.ID) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
-      
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didPressAddButton(_:)))
         addButton.accessibilityLabel = NSLocalizedString("Add word", comment: "Add button accessibility label")
         navigationItem.rightBarButtonItem = addButton
@@ -46,17 +47,17 @@ final class WordListVC: UICollectionViewController {
         }
         navigationController?.pushViewController(viewController, animated: true)
     }
- 
-  private func listLayout() -> UICollectionViewCompositionalLayout {
-      var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-      listConfiguration.showsSeparators = true
-      listConfiguration.backgroundColor = .clear
-      listConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
-      
-      return UICollectionViewCompositionalLayout.list(using: listConfiguration)
+    
+    private func listLayout() -> UICollectionViewCompositionalLayout {
+        var listConfiguration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        listConfiguration.showsSeparators = true
+        listConfiguration.backgroundColor = .clear
+        listConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
+        
+        return UICollectionViewCompositionalLayout.list(using: listConfiguration)
         
     }
-
+    
     private func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
         guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
         let deleteActionTitle = NSLocalizedString("Delete", comment: "Delete action title")
