@@ -10,7 +10,13 @@ import UIKit
 final class WordListVC: UICollectionViewController {
     
     var dataSource: DataSource!
-    var words: [Word] = Word.wordsSet.sorted(by: { $0.anyWord < $1.anyWord })
+    var currentWords: [Word] = Word.allWordsInApp.sorted(by:{ $0.anyWord < $1.anyWord})
+    lazy var allWords: [Word] = currentWords.sorted(by:{ $0.anyWord < $1.anyWord})
+    lazy var newWords: [Word] = currentWords.filter({!$0.isLearnt})
+    lazy var learnedWords: [Word] = currentWords.filter({$0.isLearnt})
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +27,7 @@ final class WordListVC: UICollectionViewController {
         isLearnSC.selectedSegmentIndex = 0
         self.navigationItem.titleView = isLearnSC
         isLearnSC.addTarget(self, action: #selector(changeSelection), for: UIControl.Event.valueChanged)
-       
+        
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
@@ -34,12 +40,12 @@ final class WordListVC: UICollectionViewController {
         addButton.accessibilityLabel = NSLocalizedString("Add word", comment: "Add button accessibility label")
         navigationItem.rightBarButtonItem = addButton
         self.navigationController?.navigationBar.barTintColor = .black
-        updateSnapshot()
+        updateSnapshot(with: currentWords)
         collectionView.dataSource = dataSource
     }
     
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        let id = words[indexPath.item].id
+        let id = currentWords[indexPath.item].id
         showDetail(for: id)
         return false
     }
@@ -48,8 +54,8 @@ final class WordListVC: UICollectionViewController {
     func showDetail(for id: Word.ID) {
         let word = word(for: id)
         let viewController = WordViewController(word: word) { [weak self] word in
-            self?.update(word, with: word.id)
-            self?.updateSnapshot(reloading: [word.id])
+            self?.update(word, with: word.id, with: self!.currentWords)
+            self?.updateSnapshot(with: self!.currentWords)
         }
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -61,7 +67,6 @@ final class WordListVC: UICollectionViewController {
         listConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
         
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
-        
     }
     
     private func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
@@ -69,11 +74,10 @@ final class WordListVC: UICollectionViewController {
         let deleteActionTitle = NSLocalizedString("Delete", comment: "Delete action title")
         let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { [weak self] _, _, completion in
             self?.deleteWord(with: id)
-            self?.updateSnapshot()
+            self?.updateSnapshot(with: self!.currentWords)
             completion(false)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    
 }
 

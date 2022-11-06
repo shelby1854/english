@@ -23,10 +23,10 @@ extension WordListVC {
     }
     
     
-    func updateSnapshot(reloading ids: [Word.ID] = []) {
+    func updateSnapshot(reloading ids: [Word.ID] = [], with words: [Word]) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(words.map { $0.id })
+        snapshot.appendItems(currentWords.map { $0.id })
 
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
@@ -51,18 +51,18 @@ extension WordListVC {
         backgoundConfiguration.backgroundColor = .clear
     }
     
-    func completeWord(with id: Word.ID) {
+    func completeWord(with id: Word.ID, with words: [Word]) {
         var word = word(for: id)
         word.isLearnt.toggle()
-        update(word, with: id)
-        updateSnapshot(reloading: [id])
+        update(word, with: id, with: currentWords)
+        updateSnapshot(reloading: [id], with: currentWords)
     }
     
     
     private func doneButtonAccessibilityAction(for word: Word) -> UIAccessibilityCustomAction {
         let name = NSLocalizedString("Toggle completion", comment: "Word done button accessibility label")
         let action = UIAccessibilityCustomAction(name: name) { [weak self] action in
-            self?.completeWord(with: word.id)
+            self?.completeWord(with: word.id, with: self!.currentWords)
             return true
         }
         return action
@@ -84,23 +84,23 @@ extension WordListVC {
     
     
     func add(_ word: Word) {
-        words.append(word)
-        words.sort(by: { $0.anyWord < $1.anyWord } )
+        currentWords.append(word)
+        currentWords.sort(by: { $0.anyWord < $1.anyWord } )
     }
     
     func deleteWord(with id: Word.ID) {
-        let index = words.indexOfWord(with: id)
-        words.remove(at: index)
+        let index = currentWords.indexOfWord(with: id)
+        currentWords.remove(at: index)
     }
     
     func word(for id: Word.ID) -> Word {
-        let index = words.indexOfWord(with: id)
-        return words[index]
+        let index = currentWords.indexOfWord(with: id)
+        return currentWords[index]
     }
     
-    func update(_ word: Word, with id: Word.ID) {
-        let index = words.indexOfWord(with: id)
-        words[index] = word
+    func update(_ word: Word, with id: Word.ID, with words: [Word]) {
+        let index = currentWords.indexOfWord(with: id)
+        currentWords[index] = word
     }
     
     

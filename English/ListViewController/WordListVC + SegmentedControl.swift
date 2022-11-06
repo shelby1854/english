@@ -9,20 +9,18 @@ import UIKit
 
 extension WordListVC {
     
-  @objc func changeSelection(sender: UISegmentedControl) {
-    
+    @objc func changeSelection(sender: UISegmentedControl) {
+        
         switch sender.selectedSegmentIndex {
         case 0:
-            words = Word.wordsSet.sorted(by: { $0.anyWord < $1.anyWord })
-            updateSnapshot()
+            allWords = allWords.sorted(by: { $0.anyWord < $1.anyWord })
+            updateSnapshot(with: currentWords)
         case 1:
-            words = Word.wordsSet.sorted(by: { $0.anyWord < $1.anyWord })
-            words = Word.wordsSet.filter( {!$0.isLearnt })
-            updateSnapshot()
+            newWords = newWords.sorted(by: { $0.anyWord < $1.anyWord })
+            updateSnapshot(with: currentWords)
         case 2:
-            words = Word.wordsSet.sorted(by: { $0.anyWord < $1.anyWord })
-            words = Word.wordsSet.filter( {$0.isLearnt })
-            updateSnapshot()
+            learnedWords = learnedWords.sorted(by: { $0.anyWord < $1.anyWord })
+            updateSnapshot(with: currentWords)
         default:
             break
         }

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Word: Equatable, Identifiable {
     
     var id: String = UUID().uuidString
@@ -19,7 +18,6 @@ struct Word: Equatable, Identifiable {
 }
 
 extension Array where Element == Word {
-    
     func indexOfWord(with id: Word.ID) -> Self.Index {
         
         guard let index = firstIndex(where: { $0.id == id }) else {
@@ -27,13 +25,10 @@ extension Array where Element == Word {
         }
         return index
     }
-    
 }
 
-
-
 extension Word {
-   static  var wordsSet = [
+   static  var allWordsInApp = [
         Word(anyWord: "Hello", wordTranscription: "Хеллоу", wordTranslation: "Привет", exampleWithWord: "Hello, I am Pasha", isLearnt: true),
         Word(anyWord: "Apple", wordTranscription: "Эпл", wordTranslation: "Яблоко", exampleWithWord: "Give me an apple", isLearnt: true),
         Word(anyWord: "Exhausted", wordTranslation: "Изнеможенный, истощенный", isLearnt: false),
