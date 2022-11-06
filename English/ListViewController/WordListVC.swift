@@ -15,7 +15,13 @@ final class WordListVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = NSLocalizedString("ENGLISH", comment: "English VC title")
+        let titlesSC = ["All", "New", "Learned"]
+        let isLearnSC = UISegmentedControl(items: titlesSC)
+        isLearnSC.backgroundColor = .systemGreen
+        isLearnSC.selectedSegmentIndex = 0
+        self.navigationItem.titleView = isLearnSC
+        isLearnSC.addTarget(self, action: #selector(changeSelection), for: UIControl.Event.valueChanged)
+       
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)

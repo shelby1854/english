@@ -14,6 +14,7 @@
 		F667442928FC5E5B0020D443 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F667442728FC5E5B0020D443 /* Main.storyboard */; };
 		F667442B28FC5E5D0020D443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F667442A28FC5E5D0020D443 /* Assets.xcassets */; };
 		F667442E28FC5E5D0020D443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F667442C28FC5E5D0020D443 /* LaunchScreen.storyboard */; };
+		F69854D72917B2C900497686 /* WordListVC + SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69854D62917B2C900497686 /* WordListVC + SegmentedControl.swift */; };
 		F6A0ED1D29042F3700ADF6C6 /* WordViewController+Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0ED1C29042F3700ADF6C6 /* WordViewController+Sections.swift */; };
 		F6C561CE2903D7C20098DF27 /* WordListVC+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C561CD2903D7C20098DF27 /* WordListVC+DataSource.swift */; };
 		F6C561D02903E7D80098DF27 /* WordDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C561CF2903E7D80098DF27 /* WordDoneButton.swift */; };
@@ -37,6 +38,7 @@
 		F667442A28FC5E5D0020D443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F667442D28FC5E5D0020D443 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F667442F28FC5E5D0020D443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F69854D62917B2C900497686 /* WordListVC + SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordListVC + SegmentedControl.swift"; sourceTree = "<group>"; };
 		F6A0ED1C29042F3700ADF6C6 /* WordViewController+Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordViewController+Sections.swift"; sourceTree = "<group>"; };
 		F6C561CD2903D7C20098DF27 /* WordListVC+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordListVC+DataSource.swift"; sourceTree = "<group>"; };
 		F6C561CF2903E7D80098DF27 /* WordDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDoneButton.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				F6C561CF2903E7D80098DF27 /* WordDoneButton.swift */,
 				F667442528FC5E5B0020D443 /* WordListVC.swift */,
+				F69854D62917B2C900497686 /* WordListVC + SegmentedControl.swift */,
 				F6C561D12903E8C10098DF27 /* WordListVC+Actions.swift */,
 				F6C561CD2903D7C20098DF27 /* WordListVC+DataSource.swift */,
 			);
@@ -221,6 +224,7 @@
 				F6C561D02903E7D80098DF27 /* WordDoneButton.swift in Sources */,
 				F6C561D42903FF170098DF27 /* WordViewController.swift in Sources */,
 				F6C561D22903E8C10098DF27 /* WordListVC+Actions.swift in Sources */,
+				F69854D72917B2C900497686 /* WordListVC + SegmentedControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

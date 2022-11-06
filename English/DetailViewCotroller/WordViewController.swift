@@ -24,7 +24,6 @@ final class WordViewController: UICollectionViewController {
     
     private var dataSource: DataSource!
     
-    
     init(word: Word, onChange: @escaping (Word) -> Void) {
         self.word = word
         self.workingWord = word

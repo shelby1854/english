@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navBarAppearence = UINavigationBarAppearance()
         navBarAppearence.configureWithOpaqueBackground()
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearence
-        
         UINavigationBar.appearance().backgroundColor = .green // цвет фона когда скролишь
         return true
     }
