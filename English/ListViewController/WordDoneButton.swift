@@ -9,10 +9,6 @@ import UIKit
 
 final class WordDoneButton: UIButton {
     
-    var id: Word.ID?
-    
-    
-    
-    
+    var id: Word.ID? 
     
 }

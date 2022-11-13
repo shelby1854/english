@@ -13,14 +13,17 @@ extension WordListVC {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            allWords = allWords.sorted(by: { $0.anyWord < $1.anyWord })
+            currentWords = Word.allWordsInApp.sorted(by: { $0.anyWord < $1.anyWord })
             updateSnapshot(with: currentWords)
+            print(currentWords)
         case 1:
-            newWords = newWords.sorted(by: { $0.anyWord < $1.anyWord })
-            updateSnapshot(with: currentWords)
+            newWords = currentWords.sorted(by: { $0.anyWord < $1.anyWord }).filter({!$0.isLearnt})
+            updateSnapshot(with: newWords)
+            print(newWords)
         case 2:
-            learnedWords = learnedWords.sorted(by: { $0.anyWord < $1.anyWord })
-            updateSnapshot(with: currentWords)
+            learnedWords = currentWords.sorted(by: { $0.anyWord < $1.anyWord }).filter({$0.isLearnt})
+            updateSnapshot(with: learnedWords)
+            print(learnedWords)
         default:
             break
         }

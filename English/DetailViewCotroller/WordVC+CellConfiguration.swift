@@ -71,6 +71,5 @@ extension WordViewController {
         default: return nil
         }
     }
-    
 }
 

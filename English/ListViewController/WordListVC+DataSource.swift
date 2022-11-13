@@ -13,7 +13,6 @@ extension WordListVC {
     typealias DataSource = UICollectionViewDiffableDataSource<Int, Word.ID>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Word.ID>
     
-    
     var wordCompleteValue: String {
         NSLocalizedString("Completed", comment: "Word completed value")
     }
@@ -21,7 +20,6 @@ extension WordListVC {
     var wordNotCompleteValue: String {
         NSLocalizedString("Not completed", comment: "Word not completed value")
     }
-    
     
     func updateSnapshot(reloading ids: [Word.ID] = [], with words: [Word]) {
         var snapshot = Snapshot()
@@ -58,7 +56,6 @@ extension WordListVC {
         updateSnapshot(reloading: [id], with: currentWords)
     }
     
-    
     private func doneButtonAccessibilityAction(for word: Word) -> UIAccessibilityCustomAction {
         let name = NSLocalizedString("Toggle completion", comment: "Word done button accessibility label")
         let action = UIAccessibilityCustomAction(name: name) { [weak self] action in
@@ -67,8 +64,6 @@ extension WordListVC {
         }
         return action
     }
-    
-    
     
     private func doneButtonConfiguration(for word: Word) -> UICellAccessory.CustomViewConfiguration{
         let symbolName = word.isLearnt ? "circle.fill" : "circle"
@@ -81,7 +76,6 @@ extension WordListVC {
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
        
     }
-    
     
     func add(_ word: Word) {
         currentWords.append(word)
@@ -102,6 +96,4 @@ extension WordListVC {
         let index = currentWords.indexOfWord(with: id)
         currentWords[index] = word
     }
-    
-    
 }

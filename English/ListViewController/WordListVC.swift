@@ -10,13 +10,9 @@ import UIKit
 final class WordListVC: UICollectionViewController {
     
     var dataSource: DataSource!
-    var currentWords: [Word] = Word.allWordsInApp.sorted(by:{ $0.anyWord < $1.anyWord})
-    lazy var allWords: [Word] = currentWords.sorted(by:{ $0.anyWord < $1.anyWord})
-    lazy var newWords: [Word] = currentWords.filter({!$0.isLearnt})
-    lazy var learnedWords: [Word] = currentWords.filter({$0.isLearnt})
-    
-    
-    
+    var currentWords: [Word] = Word.allWordsInApp.sorted(by: { $0.anyWord < $1.anyWord })
+    var newWords: [Word] = []
+    var learnedWords: [Word] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
