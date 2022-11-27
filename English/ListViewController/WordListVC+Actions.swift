@@ -11,8 +11,20 @@ extension WordListVC {
     
     @objc func didPressDoneButton(_ sender: WordDoneButton) {
         guard let id = sender.id else { return }
-        completeWord(with: id, with: currentWords)
-        updateSnapshot(with: currentWords)
+        completeWord(with: id, with: allWordsInApp)
+
+        allWordsInApp.first(where: { $0.id == id })!.isLearnt = true
+
+        switch type {
+        case .all:
+            updateSnapshot(with: allWordsInApp)
+        case .new:
+            newWords.removeAll(where: { $0.isLearnt })
+            updateSnapshot(with: newWords)
+        case .learnt:
+            learnedWords.first(where: { $0.id == id })!.isLearnt = true
+            updateSnapshot(with: learnedWords)
+        }
     }
     
     @objc func didPressAddButton(_ sender: UIBarButtonItem) {

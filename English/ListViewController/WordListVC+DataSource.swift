@@ -24,7 +24,7 @@ extension WordListVC {
     func updateSnapshot(reloading ids: [Word.ID] = [], with words: [Word]) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(currentWords.map { $0.id })
+        snapshot.appendItems(words.map { $0.id })
 
         if !ids.isEmpty {
             snapshot.reloadItems(ids)
@@ -50,7 +50,7 @@ extension WordListVC {
     }
     
     func completeWord(with id: Word.ID, with words: [Word]) {
-        var word = word(for: id)
+        let word = word(for: id)
         word.isLearnt.toggle()
         update(word, with: id, with: currentWords)
         updateSnapshot(reloading: [id], with: currentWords)
@@ -78,22 +78,24 @@ extension WordListVC {
     }
     
     func add(_ word: Word) {
-        currentWords.append(word)
-        currentWords.sort(by: { $0.anyWord < $1.anyWord } )
+        allWordsInApp.append(word)
+        allWordsInApp.sort(by: { $0.anyWord < $1.anyWord } )
+        newWords.append(word)
+        newWords.sort(by: { $0.anyWord < $1.anyWord } )
     }
     
     func deleteWord(with id: Word.ID) {
-        let index = currentWords.indexOfWord(with: id)
-        currentWords.remove(at: index)
+        let index = allWordsInApp.indexOfWord(with: id)
+        allWordsInApp.remove(at: index)
     }
     
     func word(for id: Word.ID) -> Word {
-        let index = currentWords.indexOfWord(with: id)
-        return currentWords[index]
+        let index = allWordsInApp.indexOfWord(with: id)
+        return allWordsInApp[index]
     }
     
     func update(_ word: Word, with id: Word.ID, with words: [Word]) {
-        let index = currentWords.indexOfWord(with: id)
-        currentWords[index] = word
+        let index = allWordsInApp.indexOfWord(with: id)
+        allWordsInApp[index] = word
     }
 }
