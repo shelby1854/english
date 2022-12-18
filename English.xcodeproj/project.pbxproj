@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F627BFD8294F4CDE0015B570 /* WordModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F627BFD6294F4CDE0015B570 /* WordModel.xcdatamodeld */; };
+		F627BFDA294F65DE0015B570 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F627BFD9294F65DE0015B570 /* CoreDataStack.swift */; };
+		F627BFDD294F6A330015B570 /* WordDTO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F627BFDB294F6A330015B570 /* WordDTO+CoreDataClass.swift */; };
+		F627BFDE294F6A330015B570 /* WordDTO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F627BFDC294F6A330015B570 /* WordDTO+CoreDataProperties.swift */; };
 		F62DD74628FC66FB0012866B /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62DD74528FC66FB0012866B /* Word.swift */; };
 		F667442228FC5E5B0020D443 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667442128FC5E5B0020D443 /* AppDelegate.swift */; };
 		F667442428FC5E5B0020D443 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667442328FC5E5B0020D443 /* SceneDelegate.swift */; };
@@ -29,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F627BFD7294F4CDE0015B570 /* WordModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WordModel.xcdatamodel; sourceTree = "<group>"; };
+		F627BFD9294F65DE0015B570 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		F627BFDB294F6A330015B570 /* WordDTO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordDTO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F627BFDC294F6A330015B570 /* WordDTO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordDTO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F62DD74528FC66FB0012866B /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		F667441E28FC5E5B0020D443 /* English.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = English.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F667442128FC5E5B0020D443 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				F62DD74528FC66FB0012866B /* Word.swift */,
+				F627BFD6294F4CDE0015B570 /* WordModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,6 +101,9 @@
 			children = (
 				F667442128FC5E5B0020D443 /* AppDelegate.swift */,
 				F667442328FC5E5B0020D443 /* SceneDelegate.swift */,
+				F627BFD9294F65DE0015B570 /* CoreDataStack.swift */,
+				F627BFDB294F6A330015B570 /* WordDTO+CoreDataClass.swift */,
+				F627BFDC294F6A330015B570 /* WordDTO+CoreDataProperties.swift */,
 				F62DD74428FC66660012866B /* Model */,
 				F6F63F6E29053C9000FF3DEC /* ContentViews */,
 				F6C561D5290401CC0098DF27 /* DetailViewCotroller */,
@@ -210,8 +222,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6F63F7229053F1700FF3DEC /* TextFieldContentView.swift in Sources */,
+				F627BFDD294F6A330015B570 /* WordDTO+CoreDataClass.swift in Sources */,
 				F6F63F7029053CE700FF3DEC /* UIView+PinnedSubview.swift in Sources */,
 				F6A0ED1D29042F3700ADF6C6 /* WordViewController+Sections.swift in Sources */,
+				F627BFDA294F65DE0015B570 /* CoreDataStack.swift in Sources */,
 				F6C561D7290402110098DF27 /* WordViewController+Row.swift in Sources */,
 				F6F63F6D29053AA000FF3DEC /* WordVC+CellConfiguration.swift in Sources */,
 				F667442628FC5E5B0020D443 /* WordListVC.swift in Sources */,
@@ -223,7 +237,9 @@
 				F667442428FC5E5B0020D443 /* SceneDelegate.swift in Sources */,
 				F6C561D02903E7D80098DF27 /* WordDoneButton.swift in Sources */,
 				F6C561D42903FF170098DF27 /* WordViewController.swift in Sources */,
+				F627BFD8294F4CDE0015B570 /* WordModel.xcdatamodeld in Sources */,
 				F6C561D22903E8C10098DF27 /* WordListVC+Actions.swift in Sources */,
+				F627BFDE294F6A330015B570 /* WordDTO+CoreDataProperties.swift in Sources */,
 				F69854D72917B2C900497686 /* WordListVC + SegmentedControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +470,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F627BFD6294F4CDE0015B570 /* WordModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F627BFD7294F4CDE0015B570 /* WordModel.xcdatamodel */,
+			);
+			currentVersion = F627BFD7294F4CDE0015B570 /* WordModel.xcdatamodel */;
+			path = WordModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F667441628FC5E5B0020D443 /* Project object */;
 }

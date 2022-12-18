@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G217" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier=""/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G217" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="WordDTO" representedClassName="WordDTO" syncable="YES">
+        <attribute name="anyWord" optional="YES" attributeType="String"/>
+        <attribute name="exampleWithWord" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isLearnt" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="wordTrancslation" optional="YES" attributeType="String"/>
+        <attribute name="wordTranscription" optional="YES" attributeType="String"/>
+    </entity>
+</model>
